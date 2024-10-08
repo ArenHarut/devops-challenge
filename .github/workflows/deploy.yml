@@ -19,7 +19,10 @@ jobs:
 
             - name: Build project
               run: npm run build
-
+            
+            - name: Run tests
+              run: npm test
+            
             - name: Archive production artifacts
               run: zip -r functionapp.zip .
 
