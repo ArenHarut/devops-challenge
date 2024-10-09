@@ -14,6 +14,6 @@ terraform {
     resource_group_name  = "apvmax-tfstates-rg"
     storage_account_name = "apvmaxtfstatessto"
     container_name       = "terraform-remote-states"
-    key                  = "approvalmax/azfunction.tfstate"
+    key                  = "approvalmax/staging-azfunction.tfstate"
   }
 }
