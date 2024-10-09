@@ -32,15 +32,6 @@ resource "azurerm_service_plan" "main" {
   sku_name            = "Y1"
 }
 
-locals {
-  resource_prefix = "approvalmax"
-  default_tags = {
-    app = "streaming"
-    tier = "business"
-    dept = "R&D"
-  }
-}
-
 resource "azurerm_linux_function_app" "main" {
   name                       = "${local.resource_prefix}-realtime-processing-svc"
   resource_group_name        = azurerm_resource_group.main.name
