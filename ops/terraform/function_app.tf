@@ -8,7 +8,7 @@ resource "azurerm_resource_group" "main" {
 }
 
 resource "azurerm_storage_account" "main" {
-  name                     = "linuxfunctionappsa"
+  name                     = "${local.resource_prefix}linuxfapsa"
   resource_group_name      = azurerm_resource_group.main.name
   location                 = azurerm_resource_group.main.location
   account_tier             = "Standard"
@@ -16,7 +16,7 @@ resource "azurerm_storage_account" "main" {
 }
 
 resource "azurerm_service_plan" "main" {
-  name                = "main-app-service-plan"
+  name                = "${local.resource_prefix}-app-service-plan"
   resource_group_name = azurerm_resource_group.main.name
   location            = azurerm_resource_group.main.location
   os_type             = "Linux"
@@ -33,7 +33,7 @@ locals {
 }
 
 resource "azurerm_linux_function_app" "main" {
-  name                       = "${local.resource_prefix}-realtime-processing-service"
+  name                       = "${local.resource_prefix}-realtime-processing-svc"
   resource_group_name        = azurerm_resource_group.main.name
   location                   = azurerm_resource_group.main.location
   service_plan_id            = azurerm_service_plan.main.id
